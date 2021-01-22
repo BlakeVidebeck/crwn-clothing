@@ -1,9 +1,11 @@
 import React from 'react'
+
 import './App.css'
-import HomePage from './components/HomePage'
+
+import HomeScreen from './screens/HomeScreen'
 
 function App() {
-	return <HomePage />
+	return <HomeScreen />
 }
 
 export default App
