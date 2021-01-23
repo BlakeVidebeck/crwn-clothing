@@ -48,9 +48,9 @@ class Directory extends Component {
 	render() {
 		return (
 			<div className='directory-menu'>
-				{/* destructure from each 'section' */}
-				{this.state.sections.map((section) => (
-					<MenuItem key={section.id} section={section}></MenuItem>
+				{/* use the spread operator to destructure the other items in object */}
+				{this.state.sections.map(({ id, ...otherSectionProps }) => (
+					<MenuItem key={id} {...otherSectionProps} />
 				))}
 			</div>
 		)
