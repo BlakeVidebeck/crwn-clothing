@@ -4,12 +4,12 @@ import Directory from '../../components/directory/Directory'
 
 import './HomeScreen.scss'
 
-const HomePage = () => {
+const HomeScreen = () => {
 	return (
-		<div className='homepage'>
+		<div className='homescreen'>
 			<Directory />
 		</div>
 	)
 }
 
-export default HomePage
+export default HomeScreen

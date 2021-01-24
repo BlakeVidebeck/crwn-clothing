@@ -5,6 +5,7 @@ import './App.css'
 
 import HomeScreen from './screens/homescreen/HomeScreen'
 import ShopScreen from './screens/shopscreen/ShopScreen'
+import LoginAndRegisterScreen from './screens/LoginAndRegisterScreen/LoginAndRegisterScreen'
 import Header from './components/header/Header'
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
 			<Header />
 			<Switch>
 				<Route exact path='/shop' component={ShopScreen} />
+				<Route exact path='/login' component={LoginAndRegisterScreen} />
 				<Route exact path='/' component={HomeScreen} />
 			</Switch>
 		</>
