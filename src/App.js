@@ -7,7 +7,7 @@ import HomeScreen from './screens/homescreen/HomeScreen'
 import ShopScreen from './screens/shopscreen/ShopScreen'
 import LoginAndRegisterScreen from './screens/LoginAndRegisterScreen/LoginAndRegisterScreen'
 import Header from './components/header/Header'
-import { auth } from './firebase/firebase.utils'
+import { auth, createUserProfileDocument } from './firebase/firebase.utils'
 
 class App extends React.Component {
 	constructor() {
@@ -17,17 +17,27 @@ class App extends React.Component {
 		}
 	}
 
-	// create a new method and set it to null
 	unsubscribeFromAuth = null
 
-	// on mount set the unsubscribe method to a function that sets the state of the current user logged in from googleAuth
 	componentDidMount() {
-		this.unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
-			this.setState({ currentUser: user })
+		this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
+			if (userAuth) {
+				const userRef = await createUserProfileDocument(userAuth)
+
+				userRef.onSnapshot((snapShot) => {
+					this.setState({
+						currentUser: {
+							id: snapShot.id,
+							...snapShot.data(),
+						},
+					})
+				})
+			} else {
+				this.setState({ currentUser: userAuth })
+			}
 		})
 	}
 
-	// on unmount set unsubscribe method back to null
 	componentWillUnmount() {
 		this.unsubscribeFromAuth()
 	}
