@@ -18,3 +18,24 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
 	// with the attached quantity property set to 1
 	return [...cartItems, { ...cartItemToAdd, quantity: 1 }]
 }
+
+export const removeItemFromCart = (cartItems, cartItemToRemove) => {
+	// check to see if the new item already exists in the cart
+	const existingCartItem = cartItems.find(
+		(cartItem) => cartItem.id === cartItemToRemove.id
+	)
+
+	// if existingCartItem.quantity is 1 then create a new array
+	// and return all the items that do not match the cartItemToRemove.id
+	if (existingCartItem.quantity === 1) {
+		return cartItems.filter((cartItem) => cartItem.id !== cartItemToRemove.id)
+	}
+
+	// if existingCartItem.quantity has more than 1 then create a new array
+	// and find the cartItem and remove 1 from it
+	return cartItems.map((cartItem) =>
+		cartItem.id === cartItemToRemove.id
+			? { ...cartItem, quantity: cartItem.quantity - 1 }
+			: cartItem
+	)
+}
