@@ -1,4 +1,5 @@
 import { SET_CURRENT_USER } from './userConstants'
+
 const INITIAL_STATE = {
 	currentUser: null,
 }
