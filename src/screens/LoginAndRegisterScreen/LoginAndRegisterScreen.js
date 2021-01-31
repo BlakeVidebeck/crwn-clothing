@@ -3,14 +3,14 @@ import React from 'react'
 import Login from '../../components/login/Login'
 import Register from '../../components/register/Register'
 
-import './LoginAndRegisterScreen.scss'
+import { LoginAndRegisterContainer } from './LoginAndRegisterScreenStyles'
 
 const LoginAndRegisterScreen = () => {
 	return (
-		<div className='loginandregister'>
+		<LoginAndRegisterContainer>
 			<Login />
 			<Register />
-		</div>
+		</LoginAndRegisterContainer>
 	)
 }
 

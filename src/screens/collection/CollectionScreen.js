@@ -5,14 +5,18 @@ import CollectionItem from '../../components/collection-item/CollectionItem'
 
 import { selectCollection } from '../../redux/shop/shopSelectors'
 
-import './CollectionScreen.scss'
+import {
+	CollectionScreenContainer,
+	CollectionTitle,
+	CollectionItemsContainer,
+} from './CollectionStyles'
 
 const CollectionScreen = ({ collection }) => {
 	const { title, items } = collection
 	return (
-		<div className='collection-screen'>
-			<h2 className='title'>{title}</h2>
-			<div className='items'>
+		<CollectionScreenContainer>
+			<CollectionTitle>{title}</CollectionTitle>
+			<CollectionItemsContainer>
 				{items.map((item) => (
 					<CollectionItem
 						key={item.id}
@@ -20,8 +24,8 @@ const CollectionScreen = ({ collection }) => {
 						className='collection-item'
 					/>
 				))}
-			</div>
-		</div>
+			</CollectionItemsContainer>
+		</CollectionScreenContainer>
 	)
 }
 
