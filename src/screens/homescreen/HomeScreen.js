@@ -2,13 +2,13 @@ import React from 'react'
 
 import Directory from '../../components/directory/Directory'
 
-import './HomeScreen.scss'
+import { HomeScreenContainer } from './HomeScreenStyles'
 
 const HomeScreen = () => {
 	return (
-		<div className='homescreen'>
+		<HomeScreenContainer>
 			<Directory />
-		</div>
+		</HomeScreenContainer>
 	)
 }
 
