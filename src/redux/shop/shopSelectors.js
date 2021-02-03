@@ -14,13 +14,13 @@ export const selectCollections = createSelector(
 // turn the shop data object into an array to be able to map through it
 export const selectCollectionsForPreview = createSelector(
 	[selectCollections],
-	(collections) => Object.keys(collections).map((key) => collections[key])
+	(collections) =>
+		collections ? Object.keys(collections).map((key) => collections[key]) : []
 )
 
 // return the collection state where the collectionNameParam (hats) matches the key in the shopdata object
 export const selectCollection = memoize((collectionNameParam) =>
-	createSelector(
-		[selectCollections],
-		(collections) => collections[collectionNameParam]
+	createSelector([selectCollections], (collections) =>
+		collections ? collections[collectionNameParam] : null
 	)
 )

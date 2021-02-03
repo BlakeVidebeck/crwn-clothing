@@ -11,7 +11,9 @@ import LoginAndRegisterScreen from './screens/LoginAndRegisterScreen/LoginAndReg
 import CheckoutScreen from './screens/checkout/CheckoutScreen'
 
 import Header from './components/header/Header'
+
 import { auth, createUserProfileDocument } from './firebase/firebase.utils'
+
 import { setCurrentUser } from './redux/user/userActions'
 import { selectCurrentUser } from './redux/user/userSelectors'
 
@@ -20,19 +22,21 @@ class App extends React.Component {
 
 	componentDidMount() {
 		const { setCurrentUser } = this.props
+		// if the auth state changes then pass userAuth object
 		this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
+			// if auth state changes then create a user profile
 			if (userAuth) {
 				const userRef = await createUserProfileDocument(userAuth)
-
+				// whenever the document snapshot changes then set the state to the userRef
 				userRef.onSnapshot((snapShot) => {
 					setCurrentUser({
 						id: snapShot.id,
 						...snapShot.data(),
 					})
 				})
-			} else {
-				setCurrentUser(userAuth)
 			}
+			// sets the state of the current user
+			setCurrentUser(userAuth)
 		})
 	}
 

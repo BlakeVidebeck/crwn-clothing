@@ -20,7 +20,7 @@ import {
 const Header = ({ currentUser, hidden }) => {
 	return (
 		<HeaderContainer>
-			<LogoContainer>
+			<LogoContainer to='/'>
 				<Logo className='logo' />
 			</LogoContainer>
 
