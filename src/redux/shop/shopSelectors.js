@@ -24,3 +24,15 @@ export const selectCollection = memoize((collectionNameParam) =>
 		collections ? collections[collectionNameParam] : null
 	)
 )
+
+// get the isFetching state from the shop state
+export const selectIsCollectionFetching = createSelector(
+	[selectShop],
+	(shop) => shop.isFetching
+)
+
+// see if the shop collections is a boolean value
+export const selectIsCollectionLoaded = createSelector(
+	[selectShop],
+	(shop) => !!shop.collections
+)
