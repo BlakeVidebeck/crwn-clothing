@@ -50,13 +50,13 @@ const Login = ({ googleSignInStart, emailSignInStart }) => {
 					handleChange
 				/>
 				<ButtonsBarContainer>
-					<CustomButton type='submit'>Login</CustomButton>
+					<CustomButton type='submit'>Sign In</CustomButton>
 					<CustomButton
 						type='button'
 						onClick={googleSignInStart}
 						isGoogleSignIn
 					>
-						Sign in with Google
+						Google Sign In
 					</CustomButton>
 				</ButtonsBarContainer>
 			</form>
