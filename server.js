@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import path from 'path'
 import dotenv from 'dotenv'
+import compression from 'compression'
 
 if (process.env.NODE_ENV !== 'production') {
 	dotenv.config()
@@ -13,6 +14,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 const app = express()
 const PORT = process.env.PORT || 5000
 
+app.use(compression())
 app.use(express.json())
 
 app.use(cors())
