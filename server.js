@@ -3,6 +3,7 @@ import cors from 'cors'
 import path from 'path'
 import dotenv from 'dotenv'
 import compression from 'compression'
+import enforce from 'express-sslify'
 
 if (process.env.NODE_ENV !== 'production') {
 	dotenv.config()
@@ -22,10 +23,12 @@ app.use(cors())
 const __dirname = path.resolve()
 
 if (process.env.NODE_ENV === 'production') {
-	app.use(express.static(path.join(__dirname, '/client/build')))
-	app.get('*', (req, res) =>
-		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-	)
+	app.use(enforce.HTTPS({ trustProtoHeader: true }))
+	app.use(express.static(path.join(__dirname, 'client/build')))
+
+	app.get('*', function (req, res) {
+		res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+	})
 }
 
 app.post('/payment', (req, res) => {
@@ -42,6 +45,10 @@ app.post('/payment', (req, res) => {
 			res.status(200).send({ success: stripeRes })
 		}
 	})
+})
+
+app.get('/service-worker.js', (req, res) => {
+	res.send(path.resolve(__dirname, '..', 'build', 'service-worker.js'))
 })
 
 app.listen(PORT, (error) => {
