@@ -11,7 +11,7 @@ import {
 	PriceContainer,
 } from './CollectionItemStyles'
 
-const CollectionItem = ({ item, addItem }) => {
+export const CollectionItem = ({ item, addItem }) => {
 	const { name, price, imageUrl } = item
 	return (
 		<CollectionItemContainer>
@@ -19,7 +19,7 @@ const CollectionItem = ({ item, addItem }) => {
 
 			<CollectionFooterContainer>
 				<NameContainer>{name}</NameContainer>
-				<PriceContainer>${price}</PriceContainer>
+				<PriceContainer>{price}</PriceContainer>
 			</CollectionFooterContainer>
 
 			<AddButton onClick={() => addItem(item)} inverted>

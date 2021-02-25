@@ -17,7 +17,7 @@ import {
 	OptionLink,
 } from './HeaderStyles'
 
-const Header = ({ currentUser, hidden, signOutStart }) => {
+export const Header = ({ currentUser, hidden, signOutStart }) => {
 	return (
 		<HeaderContainer>
 			<LogoContainer to='/'>

@@ -10,6 +10,7 @@ import {
 } from '../../redux/user/userActions'
 
 import { LoginContainer, LoginTitle, ButtonsBarContainer } from './LoginStyles'
+
 const Login = ({ googleSignInStart, emailSignInStart }) => {
 	const [credentials, setCredentials] = useState({
 		email: '',

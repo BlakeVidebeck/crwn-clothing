@@ -43,3 +43,4 @@ export const OptionLink = styled(Link)`
 	font-size: 1.3rem;
 	cursor: pointer;
 `
+OptionLink.displayName = 'OptionLink'
