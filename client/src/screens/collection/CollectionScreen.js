@@ -11,7 +11,7 @@ import {
 	CollectionItemsContainer,
 } from './CollectionStyles'
 
-const CollectionScreen = ({ collection }) => {
+export const CollectionScreen = ({ collection }) => {
 	const { title, items } = collection
 	return (
 		<CollectionScreenContainer>

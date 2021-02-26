@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CollectionPage should render the CollectionScreen component 1`] = `
+<styled.div>
+  <styled.h2>
+    Test
+  </styled.h2>
+  <CollectionItemsContainer>
+    <Connect(CollectionItem)
+      className="collection-item"
+      item={
+        Object {
+          "id": 1,
+        }
+      }
+      key="1"
+    />
+    <Connect(CollectionItem)
+      className="collection-item"
+      item={
+        Object {
+          "id": 2,
+        }
+      }
+      key="2"
+    />
+    <Connect(CollectionItem)
+      className="collection-item"
+      item={
+        Object {
+          "id": 3,
+        }
+      }
+      key="3"
+    />
+  </CollectionItemsContainer>
+</styled.div>
+`;

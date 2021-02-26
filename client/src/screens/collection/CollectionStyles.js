@@ -22,3 +22,4 @@ export const CollectionItemsContainer = styled.div`
 		grid-template-columns: 1fr 1fr;
 	}
 `
+CollectionItemsContainer.displayName = 'CollectionItemsContainer'

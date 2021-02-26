@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import { fetchCollectionsStart } from '../../redux/shop/shopActions'
 import Spinner from '../../components/spinner/Spinner'
 
+import { ShopPageContainer } from './ShopStyles'
+
 const CollectionsOverviewContainer = lazy(() =>
 	import('../../components/collections-overview/CollectionsOverviewContainer')
 )
@@ -12,13 +14,13 @@ const CollectionContainer = lazy(() =>
 	import('../collection/CollectionContainer')
 )
 
-const ShopScreen = ({ fetchCollectionsStart, match }) => {
+export const ShopScreen = ({ fetchCollectionsStart, match }) => {
 	useEffect(() => {
 		fetchCollectionsStart()
 	}, [fetchCollectionsStart])
 
 	return (
-		<div className='shop-screen'>
+		<ShopPageContainer>
 			<Suspense fallback={<Spinner />}>
 				<Route
 					exact
@@ -30,7 +32,7 @@ const ShopScreen = ({ fetchCollectionsStart, match }) => {
 					component={CollectionContainer}
 				/>
 			</Suspense>
-		</div>
+		</ShopPageContainer>
 	)
 }
 

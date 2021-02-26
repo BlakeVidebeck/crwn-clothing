@@ -18,7 +18,7 @@ import {
 	WarningContainer,
 } from './CheckoutStyles'
 
-const CheckoutScreen = ({ cartItems, total }) => {
+export const CheckoutScreen = ({ cartItems, total }) => {
 	return (
 		<CheckoutScreenContainer>
 			<CheckoutHeaderContainer>
