@@ -51,7 +51,7 @@ export function* signUp({ payload: { displayName, email, password } }) {
 }
 
 // after sign up success then login
-export function* signInAfterSignOut({ payload: { user, additionalData } }) {
+export function* signInAfterSignUp({ payload: { user, additionalData } }) {
 	yield getSnapshotFromUserAuth(user, additionalData)
 }
 
@@ -99,7 +99,7 @@ export function* onSignUpStart() {
 }
 
 export function* onSignUpSuccess() {
-	yield takeLatest(SIGN_UP_SUCCESS, signInAfterSignOut)
+	yield takeLatest(SIGN_UP_SUCCESS, signInAfterSignUp)
 }
 
 export function* onGoogleSignInStart() {

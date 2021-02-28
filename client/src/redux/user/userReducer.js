@@ -8,6 +8,7 @@ import {
 
 const INITIAL_STATE = {
 	currentUser: null,
+	error: null,
 }
 
 const userReducer = (state = INITIAL_STATE, action) => {

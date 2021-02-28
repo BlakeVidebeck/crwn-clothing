@@ -10,7 +10,7 @@ const initialState = {
 	error: undefined,
 }
 
-const shopReducer = (state = initialState, action) => {
+export const shopReducer = (state = initialState, action) => {
 	const { type, payload } = action
 	switch (type) {
 		case FETCH_COLLECTIONS_START:
